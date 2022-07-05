@@ -14,7 +14,6 @@ type ConnContext struct {
 	conn     net.Conn
 }
 
-func NewConnContext(conn net.Conn, metadata *C.Metadata) *ConnContext {
 	id, _ := uuid.NewV4()
 	return &ConnContext{
 		id:       id,
@@ -27,9 +26,6 @@ func NewConnContext(conn net.Conn, metadata *C.Metadata) *ConnContext {
 func (c *ConnContext) ID() uuid.UUID {
 	return c.id
 }
-
-// Metadata implement C.ConnContext Metadata
-func (c *ConnContext) Metadata() *C.Metadata {
 	return c.metadata
 }
 
